@@ -6,36 +6,13 @@ var User = require('../models/user');
 
 var router = express.Router();
 
-
-//dummy-value get route. Dummy value meaning
-//'hard coded' Millie
-router.post('/millie', function(req, res) {
-  var millie = new User({
-    name: 'Millie',
-    username: 'millie11',
-    password: 'reallybadpassword'
-  });
-
-  millie.save(function(err) {
-    if(err){
-      console.log(err);
-      res.sendStatus(500);
-    }else{
-      console.log('User saved successfully!');
-      res.sendStatus(200);
-    }
-  });
-});//end millie get route
-
-
-
 /**
   Thought: How could you make this route delete any user?
   It will need to take something to uniquely identify the user.
   This should be passed in the URL. For ex: localhost:3000/delete/<id>
 **/
 // delete Millie route
-router.delete('/deleteMillie', function(req, res) {
+router.delete('/', function(req, res) {
   console.log('delete route');
 
   User.findOne({username: 'millie11'}, function(err, userResult) {

@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 
 // require routers
 var millie = require('../routes/millie');
+var updateMillie = require('../routes/updateMillie');
+var deleteMillie = require('../routes/deleteMillie');
 var meg = require('../routes/meg');
 var buster = require('../routes/buster');
 
@@ -21,6 +23,8 @@ app.use(bodyParser.json());
 
 //use routes
 app.use('/', millie);
+app.use('/updateMillie', updateMillie);
+app.use('/deleteMillie', deleteMillie);
 app.use('/meg', meg);
 app.use('/buster', buster);
 // app.use('/*', index); //login
